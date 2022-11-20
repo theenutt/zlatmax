@@ -1,95 +1,112 @@
-$md3: 767.98;
-$md2: 991.98;
-
 .header {
 
-    &__content {
-        max-width: 1052px;
-        padding: 0px 6px;
-        margin: 0 auto;
+    &__top {
+        background-color: $mainDarkColor;
+        a {color: #fff;}
     }
 }
+.top-header {
+    padding: 10px 0;
 
-.menu{
-
-    /*&__icon {
+    &__container {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        min-height: 50px;
     }
 
+    &__menu {
+        flex: 1 1 auto;
+    }
+
+    &__user {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600;
+        line-height: math.div(22, 18);
+        &::before {
+            font-size: rem(28);
+            margin-right: em(15);
+        }
+    }
+}
+.menu {
+
+    
+
     &__body {
-    }*/
+    }
 
     &__list {
         display: flex;
-        justify-content: flex-end;
-        height: 82px;
-        padding: 10px 0;
-        align-items: center;
-        li { 
-            margin: 0px 0px 0px 33px;
-            list-style-type: none;
-            a {
-                text-decoration: none;
-            }
-        }
+        flex-wrap: wrap;
+        row-gap: 5px;
+        @include adaptiveValue("column-gap", 60, 20, 1)
+    }
+
+    &__item {
     }
 
     &__link {
-        font-size: 20px;
-        font-weight: 500;
-        color: #000;
-        transition: color 0.3s ease 0s;
-        @media (min-width: $md2+px) {
-            &:hover{
-                color: #ff6464;
-            }
-        }
-    }
-}
-.icon-menu {
-    display: none;
-    @media (max-width: $md3+px) {
-        display: block;
-        position: relative;
-        width: 30px;
-        height: 18px;
-        cursor: pointer;
-        z-index: 5;
-        span {
-            transition: all 0.3s ease 0s;
-            top: calc(50% - 1px);
-            left: 0px;
-            position: absolute;
-            width: 100%;
-            height: 2px;
-            background-color: #000;
-            &:first-child {
-                top: 0;
-            }
-            &:last-child{
-                top: auto;
-                bottom: 0;
-            }
-        }
-        &._active {
-            span {
-                transform: scale(0);
-                &:first-child {
-                    transform: rotate(-45deg);
-                    top: calc(50% - 1px);
-                }
-                &:last-child {
-                    transform: rotate(45deg);
-                    bottom: calc(50% - 1px);
-                }
-            }
-        }
+        font-size: rem(16);
+        line-height: math.div(20, 16);
     }
 }
 
-/*burger
+//================================================================================================================================
+
+.header {
+
+    &__body {
+    }
+}
+.body-header {
+
+    padding: 10px 0;
+    background-color: #ecf1f2;
+
+    &__container {
+        display: flex;
+        min-height: 70px;
+        align-items: center;
+    }
+
+    &__logo {
+        @extend %ic;
+        @extend ._icon-logo;
+        font-size: rem(42);
+        color: $mainDarkColor;
+    }
+
+    &__search {
+    }
+}
+.search-header {
+
+    background-color: rgba(7, 7, 7, 0.03);
+    border-radius: 3px;
+    border: 1px solid rgba(4, 4, 4, 0.5);
+    position: relative;
+
+    &__button{
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+    &__input {
+        background-color: transparent;
+        border-radius: 3px;
+        height: 41px;
+        padding: 0px 0px 0px 0px;
+    }
+}
+
+
+//================================================================================================================================
 .icon-menu {
     display: none;
-    @media (max-width: $md3+px) {
+    @media (max-width: $mobile) {
         display: block;
         position: absolute;
         top: 18px;
@@ -125,6 +142,52 @@ $md2: 991.98;
                     transform: rotate(45deg);
                     bottom: calc(50% - 1px);
                 }
+            }
+        }
+    }
+}
+
+/* icon-menu var2
+.icon-menu {
+    display: none;
+    @media (max-width: $mobile) {
+        display: block;
+        position: relative;
+        flex: 0 0 30px;
+        height: 18px;
+        cursor: pointer;
+        z-index: 5;
+        span,
+        &::before,
+        &::after {
+            content: "";
+            transition: all 0.3s ease 0s;
+            left: 0px;
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background-color: #000;
+        }
+        &::before {
+            top: 0;
+        }
+        &::after {
+            bottom: 0;
+        }
+        span {
+            top: calc(50% - 1px);
+        }
+        .menu-open & {
+            span {
+                transform: scale(0);
+            }
+            &::before {
+                transform: rotate(-45deg);
+                top: calc(50% - 1px);
+            }
+            &::after {
+                    transform: rotate(45deg);
+                    bottom: calc(50% - 1px);
             }
         }
     }
