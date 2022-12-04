@@ -16,12 +16,13 @@
 @import "fonts.scss";
 @import "fonts/icons.scss";
 @import "null";
-
+@import "popup";
 
 $fontFamily: "Montserrat";
 $fontSize: rem(18);
 $mainColor: #000;
 $mainDarkColor: #141414;
+$mainOrange: #e8aa31;
 
 $minWidth: 320;
 $maxWidth: 1920;

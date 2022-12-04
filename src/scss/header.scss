@@ -4,6 +4,15 @@
         background-color: $mainDarkColor;
         a {color: #fff;}
     }
+
+    &__body {
+    }
+
+    &__actions {
+    }
+
+    &__catalog {
+    }
 }
 .top-header {
     padding: 10px 0;
@@ -55,19 +64,14 @@
 
 //================================================================================================================================
 
-.header {
-
-    &__body {
-    }
-}
 .body-header {
 
-    padding: 10px 0;
+    padding: rem(10) 0;
     background-color: #ecf1f2;
 
     &__container {
         display: flex;
-        min-height: 70px;
+        min-height: rem(70);
         align-items: center;
     }
 
@@ -79,26 +83,221 @@
     }
 
     &__search {
+        flex: 1 1 auto;
+        padding-right: rem(20);
+        @include adaptiveValue("padding-left", 158, 20, 1)
     }
 }
 .search-header {
 
+    max-width: rem(377);
     background-color: rgba(7, 7, 7, 0.03);
     border-radius: 3px;
     border: 1px solid rgba(4, 4, 4, 0.5);
     position: relative;
 
-    &__button{
+    &__button {
         position: absolute;
+        background-color: transparent;
+        height: rem(41);
+        width: rem(41);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: rem(14);
         top: 0;
-        left: 0;
+        left: rem(8);
+        color: rgba(0, 0, 0, 0.5);
     }
 
     &__input {
+        width: 100%;
         background-color: transparent;
         border-radius: 3px;
-        height: 41px;
-        padding: 0px 0px 0px 0px;
+        height: rem(41);
+        color: $mainColor;
+        padding: 0px rem(20) 0px rem(50);
+        &::placeholder {
+            color: rgba(0, 0, 0, 0.5);
+        }
+    }
+}
+
+//====================================================================
+
+.actions-header {
+    display: flex;
+    align-items: center;
+    column-gap: rem(30);
+
+    &__location {
+        display: inline-flex;
+        align-items: center;
+        font-weight: 600;
+        margin: 0px rem(25) 0px 0px;
+        &::before {
+            font-size: rem(24);
+            margin: 0px em(10) 0px 0px;
+        }
+    }
+
+    &__phones {
+    }
+
+    &__favorite {
+        font-size: rem(27);
+    }
+
+    &__cart {
+        flex: 0 0 auto;
+    }
+}
+
+.phones-header {
+
+    &__items {
+    }
+
+    &__item {
+        position: relative;
+        display: flex;
+    }
+
+    &__phone {
+        font-weight: 600;
+        color: #000;
+        white-space: nowrap;
+        line-height: math.div(22, 18);
+    }
+
+    &__arrow {
+        color: #e8aa31;
+        font-size: rem(10);
+        margin: 0px 0px 0px em(17);
+    }
+
+    &__list {
+        display: none;
+        position: absolute;
+        top: 100%;
+        width: 100%;
+        left: 0;
+        margin-top: rem(5);
+        border-radius: rem(10);
+        background-color: #fff;
+        padding: rem(15);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        li {
+            &:not(:last-child) {
+                margin-bottom: em(5);
+            }
+        }
+    }
+
+    &__callback {
+        margin-top: rem(3);
+        font-weight: 700;
+        line-height: math.div(22, 18);
+        color: #e8aa31;
+    }
+}
+
+._icon-arrow_down {
+        transition: transform 0.3s ease 0s;
+        &.active {
+            transform: rotate(180deg);
+        }
+}
+
+.cart-header {
+    display: flex;
+    align-items: center;
+    column-gap: 15px;
+
+    &__icon {
+        flex: 0 0 37px;
+        font-size: rem(35);
+        position: relative;
+        span {
+            position: absolute;
+            width:  rem(14);
+            height:  rem(14);
+            background-color: $mainOrange;
+            font-size: rem(7);
+            border-radius: 50%;
+            top: 0;
+            right: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+        }
+    }
+
+    &__body {
+        font-size: rem(16);
+        line-height: math.div(20, 16);
+    }
+
+    &__summ {
+        font-weight: 500;
+        &:not(:last-child) {
+            margin-bottom: 5px;
+        }
+    }
+
+    &__link {
+        color: #e8aa31;
+        white-space: nowrap;
+    }
+}
+
+//================================================================================================================================
+
+.catalog-header {
+
+    &__container {
+    }
+
+    &__menu {
+    }
+}
+.menu-catalog {
+
+    &__list {
+        display: flex;
+    }
+
+    &__item {
+    }
+
+    &__link {
+    }
+
+    &__sub-menu {
+    }
+}
+.sub-menu-catalog {
+
+    &__block {
+    }
+
+    &__column {
+    }
+
+    &__category {
+    }
+
+    &__list {
+    }
+
+    &__item {
+    }
+
+    &__link {
+    }
+
+    &__all {
     }
 }
 
