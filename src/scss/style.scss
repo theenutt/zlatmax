@@ -2,7 +2,6 @@
 //&display=swap
 
 @use 'sass:math';
-@import "adaptive-value";
 @function rem($px) {
     $result: math.div($px, 16) + rem;
     @return $result;
@@ -17,6 +16,7 @@
 @import "fonts/icons.scss";
 @import "null";
 @import "popup";
+@import "adaptive-value";
 
 $fontFamily: "Montserrat";
 $fontSize: rem(18);
@@ -56,6 +56,7 @@ body {
     }
 }
 
+/*
 @if ($responsiveType==1) {
     [class*="__container"] {
         @if ($maxWidthContainer>0) {
@@ -91,7 +92,7 @@ body {
             }
         }
     }
-}
+} */
 
 
 @import "header";
