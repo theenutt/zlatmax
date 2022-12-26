@@ -349,40 +349,44 @@
 .sub-menu-catalog {
 
     &__block {
-        padding-bottom:  rem(30);
         display: none;
+        @for $var from 1 to 6 {
+            &_#{$var} {
+                grid-template-columns: repeat($var, minmax(auto, rem(320)));
+            }
+        }
         &._sub-menu-open {
-            display: flex;
+            display: grid;
         }
     }
 
-    &__column {
-        flex: 0 1  rem(320);
-        display: flex;
-        flex-direction: column;
+    &__container {
+        padding: 0  rem(10);
+    }
+
+    &__footer {
+        padding: rem(30) rem(15) rem(30) 0;
     }
 
     &__category {
-        align-self: flex-start;
         font-size:  rem(16);
         line-height: math.div(20,16);
         font-weight: 700;
-        padding:  rem(30)  rem(15);
+        padding:  rem(30) rem(15) rem(30) 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        color: #fff;
         @media (any-hover: hover) {
             &:hover {
                     text-decoration: underline;
             }
     }
+        &-link {color: #fff;}
     }
 
     &__list {
-        flex: 1 1 auto;
         display: flex;
         flex-direction: column;
         gap: 20px;
-        padding: rem(30)  rem(15);
+        padding: rem(30) rem(15) rem(30) 0;
         border-top: 1px solid rgba(255, 255, 255, 0.3);
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
     }
@@ -402,10 +406,6 @@
     }
 
     &__all {
-        align-self: flex-start;
-        padding-top:  rem(30);
-        padding-left:  rem(15);
-        padding-right:  rem(15);
         font-size:  rem(16);
         color: #e8aa31;
         @media (any-hover: hover) {
