@@ -99,7 +99,7 @@
     &__search {
         flex: 1 1 auto;
         padding-right: rem(20);
-        @include adaptiveValue("padding-left", 158, 20, 1620, 1400, 2);
+        @include adaptiveValue("padding-left", 158, 20, 1620, 1400, 1);
     }
 }
 .search-header {
