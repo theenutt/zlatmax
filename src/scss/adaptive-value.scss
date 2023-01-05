@@ -12,6 +12,10 @@
     @media (max-width: #{$maxWidthContainer + px}) {
       #{$property}: calc(#{$minSize + px} + #{$addSize} * ((100vw - 320px) / #{$maxWidthContainer - 320}));
     }
+
+    @media (max-width: #{$maxWidth + px}) {
+      #{$property}: $minSize + px;
+    }
   }
 
   @else if $type==2 {
