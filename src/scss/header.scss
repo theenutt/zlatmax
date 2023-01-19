@@ -22,8 +22,14 @@
     &__container {
         display: flex;
         align-items: center;
-        gap: 20px;
+        gap:  rem(20);
         min-height:  rem(50);
+        @media (max-width: $tablet) {
+            gap:  rem(30);
+            &:last-child {
+                
+            }
+        }
     }
 
     &__menu {
@@ -32,12 +38,14 @@
 
     &__user {
         display: inline-flex;
+        position: relative;
+        z-index: 5;
         align-items: center;
         font-weight: 600;
         line-height: math.div(22, 18);
+        gap: em(15);
         &::before {
             font-size: rem(28);
-            margin-right: em(15);
         }
         @media (any-hover: hover) {
             &:hover {
@@ -46,6 +54,10 @@
                 }
             }
         }
+        @media (max-width: $tablet) {
+            &::before {font-size:  rem(35);}
+            span {display: none;}
+        }
     }
 }
 
@@ -53,12 +65,20 @@
 
     &__list {
         display: flex;
-        flex-wrap: wrap;
         row-gap: 5px;
         @include adaptiveValue("column-gap", 60, 20, 1620, 1400, 1);
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            row-gap: 25px;
+        }
     }
 
     &__item {
+        &_catalog {
+            @media (min-width: $tablet) {
+                display: none;
+            }
+        }
     }
 
     &__link {
@@ -69,26 +89,67 @@
                 text-decoration: underline;
             }
         }
+        &_catalog {
+
+                display: flex;
+                flex-direction: row-reverse;
+                align-items: center;
+                justify-content: space-between;
+                &::before {
+                    flex: 0 0 14px;
+                    height: 14px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size:  rem(14);
+                    transform: rotate(-90deg);
+                }
+            
+        }
+        @media (max-width: $tablet) {
+            @include adaptiveValue("font-size",30,20,992,320,1);
+        }
+    }
+    @media (max-width: $tablet) {
+        display: none;
     }
 }
 .menu {
-
+    display: none;
     &__body {
         @media (max-width: $tablet) {
             position: fixed;
             width: 100%;
             height: 100%;
             top: 0;
-            left: 0;
+            left: -100%;
             overflow: auto;
             background-color: $mainDarkColor;
+            padding:  rem(100)  rem(15)  rem(50)  rem(15);
+            transition: all 0.3s ease 0s;
+            z-index: 4;
+            &::before {
+                content: "";
+                position: fixed;
+                width: 100%;
+                height: 70px;
+                top: 0;
+                left: -100%;
+                background-color: $mainDarkColor;
+            }
         }
     }
     @media (max-width: $tablet) {
-        flex: 0 0 30px;
-        display: block;
+        display: flex;
+        flex: 1 1 auto;
+        justify-content: flex-end;
     }
-
+    .menu-open {
+        left: 0;
+        &::before {
+            left: 0;
+        }
+    }
 }
 
 //================================================================================================================================
@@ -102,6 +163,12 @@
         display: flex;
         min-height: rem(70);
         align-items: center;
+        @media (max-width: $tablet) {
+            justify-content: space-between;
+        }
+        @media (max-width: $mobileSmall) {
+
+        }
     }
 
     &__logo {
@@ -113,17 +180,26 @@
 
     &__search {
         flex: 1 1 auto;
-        padding-right: rem(20);
-        @include adaptiveValue("padding-left", 158, 20, 1620, 1400, 1);
+        @media (min-width: $tablet) {
+            padding-right: rem(20);
+        }
+        @media (min-width: $mobileSmall) {
+            @include adaptiveValue("padding-left", 158, 20, 1620, 1250, 1);
+        }
+    }
+
+    &__actions {
     }
 }
 .search-header {
 
-    max-width: rem(377);
     background-color: rgba(7, 7, 7, 0.03);
     border-radius: 3px;
     border: 1px solid rgba(4, 4, 4, 0.5);
     position: relative;
+    @media (min-width: $tablet) {
+        max-width: rem(377);
+    }
 
     &__button {
         position: absolute;
@@ -150,6 +226,9 @@
             color: rgba(0, 0, 0, 0.5);
         }
     }
+    @media (max-width: $mobileSmall) {
+        background-color: #fff;
+    }
 }
 
 //====================================================================
@@ -157,6 +236,9 @@
 .actions-header {
     display: flex;
     align-items: center;
+    @media (max-width: $tablet) {
+        display: none;
+    }
     @include adaptiveValue("column-gap", 30, 20, 1620, 1000, 1);
 
     &__location {
@@ -181,6 +263,8 @@
     }
 
     &__favorite {
+        position: relative;
+        z-index: 5;
         font-size: rem(27);
     }
 
@@ -190,6 +274,8 @@
 }
 
 .phones-header {
+    position: relative;
+    z-index: 5;
 
     &__items {
     }
@@ -204,12 +290,32 @@
         color: #000;
         white-space: nowrap;
         line-height: math.div(22, 18);
+        &::before {
+            @extend %ic;
+            @extend ._icon-footer-phone;
+            display: none;
+        }
+        @media (max-width: $tablet) {
+            font-size:  rem(25);
+        }
+        @media (max-width: $mobileSmall) {
+            &::before {
+                display: block;
+                font-size:  rem(35);
+            }
+            span {
+                display: none;
+            }
+        }
     }
 
     &__arrow {
         color: #e8aa31;
         font-size: rem(10);
         margin: 0px 0px 0px em(17);
+        @media (max-width: $tablet) {
+            display: none;
+        }
     }
 
     &__list {
@@ -229,6 +335,9 @@
                 margin-bottom: em(5);
             }
         }
+        @media (max-width: $tablet) {
+            display: none;
+        }
     }
 
     &__callback {
@@ -240,6 +349,9 @@
             &:hover {
                     text-decoration: underline;
             }
+        }
+        @media (max-width: $tablet) {
+            display: none;
         }
     }
 }
@@ -254,6 +366,8 @@
 .cart-header {
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 5;
     column-gap: 15px;
 
     &__icon {
@@ -313,28 +427,62 @@
 
     &__menu {
     }
+
+    /*&__tablet {
+        @media (max-width: $tablet) {
+            display: none;
+        }
+    }*/
+
+    @media (max-width: $mobileSmall) {
+        padding:  rem(20) 0;
+    }
 }
 .menu-catalog {
 
     &__list {
         display: flex;
-        gap:  rem(10);
+        column-gap:  rem(10);
         justify-content: space-between;
+        @media (max-width: $tablet) {
+            flex-direction: column;
+            row-gap:  rem(25);
+        }
     }
 
     &__item {
     }
 
     &__link {
-        min-height:  rem(70);
         display: flex;
-        padding: 0  rem(10);
-        justify-content: center;
-        align-items: center;
-        text-align: center;
         position: relative;
         transition: color 0.3s ease 0s;
         color: #fff;
+        &[data-parent] {
+            &::before {
+                @extend %ic;
+                @extend ._icon-arrow_down;
+                display: none;
+                @media (max-width: $tablet) {
+                    transform: translateY( rem(5)) rotate(-90deg);
+                    display: block;
+                    font-size:  rem(10);
+                }
+            }
+            @media (max-width: $tablet) {
+                display: flex;
+                width: 100%;
+                flex-direction: row-reverse;
+                justify-content: space-between;
+            }
+        }
+        @media (min-width: $tablet) {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            min-height:  rem(70);
+            padding: 0  rem(10);
+        }
         &::after {
             content: "";
             opacity: 0;
@@ -355,7 +503,19 @@
                     visibility: visible;
                 }
             }
-    }
+        }
+        @media (min-width: $tablet) {
+            &._sub-menu-active {
+                color: $mainOrange;
+                &::after {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+        @media (max-width: $tablet) {
+            @include adaptiveValue("font-size",30,20,992,320, 1);
+        }
     }
 
     &__sub-menu {
@@ -364,8 +524,75 @@
         top: 100%;
         background-color: $mainDarkColor;
     }
+
+    &__back {
+        display: none;
+        @media (max-width: $tablet) {
+            display: inline-flex;
+            align-items: center;
+            background-color: $mainDarkColor;
+            color: #fff;
+            @include adaptiveValue("font-size",30,20,992,320, 1);
+            &:not(:last-child){
+                margin-bottom: em(65);
+            }
+            &::before{
+                margin: 0px em(13) 0px 0px;
+            }
+        }
+    }
+
+    @media (max-width: $tablet) {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: $mainDarkColor;
+        padding:  rem(25)  rem(15)  rem(50)  rem(15);
+        transition: all 0.3s ease 0s;
+        .catalog-open & {
+            left: 0;
+            z-index: 6;
+        }
+    }
 }
 .sub-menu-catalog {
+
+    @media (max-width: $tablet) {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: $mainDarkColor;
+        padding:  rem(25)  rem(15)  rem(50)  rem(15);
+        transition: all 0.3s ease 0s;
+        .sub-menu-open &{
+            display: block;
+            left: 0;
+            z-index: 20;
+        }
+    }
+
+    &__back {
+        display: none;
+        @media (max-width: $tablet) {
+            display: inline-flex;
+            align-items: center;
+            background-color: $mainDarkColor;
+            color: #fff;
+            @include adaptiveValue("font-size",30,20,992,320, 1);
+            &:not(:last-child){
+                margin-bottom: em(65);
+            }
+            &::before{
+                margin: 0px em(13) 0px 0px;
+            }
+        }
+    }
 
     &__block {
         display: none;
@@ -376,7 +603,11 @@
         }
         &._sub-menu-open {
             display: grid;
+            @media (max-width: $tablet) {
+                display: block;
+            }
         }
+        
     }
 
     &__container {
@@ -385,20 +616,36 @@
 
     &__footer {
         padding: rem(30) rem(15) rem(30) 0;
+        @media (max-width: $tablet) {
+            display: none;
+        }
     }
 
     &__category {
         font-size:  rem(16);
         line-height: math.div(20,16);
-        font-weight: 700;
-        padding:  rem(30) rem(15) rem(30) 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
         @media (any-hover: hover) {
             &:hover {
                     text-decoration: underline;
             }
     }
-        &-link {color: #fff;}
+    @media (min-width: $tablet) {
+        font-weight: 700;
+        padding:  rem(30) rem(15) rem(30) 0;
+    }
+    @media (max-width: $tablet) {
+        &:not(:last-child) {
+            margin-bottom: em(25);
+        }
+    }
+        &-link {
+            color: #fff;
+            @media (max-width: $tablet) {
+                @include adaptiveValue("font-size",30,20,992,320,1);
+            }
+            
+        }
     }
 
     &__list {
@@ -408,6 +655,9 @@
         padding: rem(30) rem(15) rem(30) 0;
         border-top: 1px solid rgba(255, 255, 255, 0.3);
         border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        @media (max-width: $tablet) {
+            display: none;
+        }
     }
 
     &__item {
@@ -431,7 +681,7 @@
             &:hover {
                     text-decoration: underline;
             }
-    }
+        }
     }
     
 }
@@ -443,10 +693,10 @@
     @media (max-width: $tablet) {
         display: block;
         position: relative;
-        width: 30px;
-        height: 18px;
+        width: 40px;
+        height: 22.5px;
         cursor: pointer;
-        z-index: 5;
+        z-index: 10;
         background-color: transparent;
         span,
         &::before,

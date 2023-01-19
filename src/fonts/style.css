@@ -64,3 +64,6 @@
 ._icon-user:before {
   content: "\e90c";
 }
+.icon-back:before {
+  content: "\e90d";
+}

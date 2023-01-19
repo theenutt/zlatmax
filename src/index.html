@@ -6,14 +6,113 @@
 <body>
     <div class="wrapper">
         @@include('header.html',{})
+        <main class="page page__home">
+            <section class="page__main-block main-block">
+                <div class="main-block__container">
+                    <div class="main-block__body">
+                        <div class="main-block__slider">
+                            <div class="main-block__swiper">
+                                <div class="main-block__slide slide-main-block">
+                                    <div class="slide-main-block__content">
+                                        <h2 data-swiper-parallax="-100" class="slide-main-block__title">Интернет магазин сертифицированных  </h2>
+                                        <div data-swiper-parallax="-150" class="slide-main-block__sub-title">златоустовских ножей</div>
+                                        <div data-swiper-parallax="-200" class="slide-main-block__text">Добро пожаловать на официальный сайт «ЗЛАТМАКС»! В нашем магазине 
+                                            представлен наиболее широкий выбор Златоустовских ножей от Златоустовских 
+                                            Оружейных Фабрик и компаний, мы являемся официальными поставщиками.
+                                        </div>
+                                    </div>
+                                    <a href="" class="slide-main-block__button button">Подробнее</a>
+                                </div>
+                                <div class="main-block__slide slide-main-block">
+                                    <div class="slide-main-block__content">
+                                        <h2 data-swiper-parallax="-100" class="slide-main-block__title">Интернет магазин сертифицированных  </h2>
+                                        <div data-swiper-parallax="-150" class="slide-main-block__sub-title">златоустовских ножей</div>
+                                        <div data-swiper-parallax="-200" class="slide-main-block__text">Добро пожаловать на официальный сайт «ЗЛАТМАКС»! В нашем магазине 
+                                            представлен наиболее широкий выбор Златоустовских ножей от Златоустовских 
+                                            Оружейных Фабрик и компаний, мы являемся официальными поставщиками.
+                                        </div>
+                                    </div>
+                                    <a href="" class="slide-main-block__button button">Подробнее</a>
+                                </div>
+                                <div class="main-block__slide slide-main-block">
+                                    <div class="slide-main-block__content">
+                                        <h2 data-swiper-parallax="-100" class="slide-main-block__title">Интернет магазин сертифицированных  </h2>
+                                        <div data-swiper-parallax="-150" class="slide-main-block__sub-title">златоустовских ножей</div>
+                                        <div data-swiper-parallax="-200" class="slide-main-block__text">Добро пожаловать на официальный сайт «ЗЛАТМАКС»! В нашем магазине 
+                                            представлен наиболее широкий выбор Златоустовских ножей от Златоустовских 
+                                            Оружейных Фабрик и компаний, мы являемся официальными поставщиками.
+                                        </div>
+                                    </div>
+                                    <a href="" class="slide-main-block__button button">Подробнее</a>
+                                </div>
+                            </div>
+                            <div class="main-block__control control-main-block">
+                                <div class="control-main-block__dotts"></div>
+                                <div class="control-main-block__fraction fraction-control">
+                                    <span class="fraction-control__current">0</span> / <span class="fraction-control__all">0</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-block__media media-main-block">
+                            <div class="media-main-block__body">
+                                <div class="media-main-block__image">
+                                    <img src="/img/mainpage/main-block/image.png" alt="">
+                                </div>
+                                <div class="media-main-block__tips">
+                                    <div data-tippy-content="Подсказка" class="media-main-block__tip media-main-block__tip_1"><span>+</span></div>
+                                    <div data-tippy-content="Подсказка" class="media-main-block__tip media-main-block__tip_2"><span>+</span></div>
+                                    <div data-tippy-content="Подсказка" class="media-main-block__tip media-main-block__tip_3"><span>+</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="main-block__advantages advantages-main">
+                        <div class="advantages-main__item">
+                            <div class="advantages-main__icon">
+                                <img src="/img/mainpage/main-block/icons/01.svg" alt="">
+                            </div>
+                            <div class="advantages-main__text">Гарантия 100% возврата 
+                                денежных средств</div>
+                        </div>
+                        <div class="advantages-main__item">
+                            <div class="advantages-main__icon">
+                                <img src="/img/mainpage/main-block/icons/02.svg" alt="">
+                            </div>
+                            <div class="advantages-main__text">Доставка по России, 
+                                Казахстану и Белоруссии</div>
+                        </div>
+                        <div class="advantages-main__item">
+                            <div class="advantages-main__icon">
+                                <img src="/img/mainpage/main-block/icons/03.svg" alt="">
+                            </div>
+                            <div class="advantages-main__text">Возможность оформление 
+                                заказа без регистрации.</div>
+                        </div>
+                        <div class="advantages-main__item">
+                            <div class="advantages-main__icon">
+                                <img src="/img/mainpage/main-block/icons/04.svg" alt="">
+                            </div>
+                            <div class="advantages-main__text">Скидки постоянным 
+                                покупателям.</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
         @@include('footer.html',{})
     </div>
     @@include('popup.html',{})
     <script
   src="https://code.jquery.com/jquery-3.6.0.js"
   integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
-  crossorigin="anonymous"></script>  
+  crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@popperjs/core@2"></script>
+  <script src="https://unpkg.com/tippy.js@6"></script> 
     <script src="js/app.min.js"></script>
-    <!--@@include('_js.html', {})-->
+    <!--
+        @@include('_js.html', {})
+              
+    -->
 </body>
 </html>

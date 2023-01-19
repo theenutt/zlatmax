@@ -1,0 +1,273 @@
+
+.main-block {
+
+    background: url("/img/mainpage/main-block/bg.jpg") center / cover no-repeat;
+    @include adaptiveValue("padding",40,20,1620,1400, 1);
+    @include adaptiveValue("padding-bottom",60,20,1620,1400, 1);
+    color: #fff;
+
+    &__body {
+        display: grid;
+        align-items: start;
+        grid-template-columns: 1fr 39%;
+    }
+
+    &__slider {
+        margin: 0  rem(-30);
+        padding: 0  rem(30);
+    }
+
+    &__swiper {
+        &:not(:last-child) {
+            margin-bottom:  rem(30);
+        }
+    }
+
+    &__media {
+    }
+
+    &__advantages {
+    }
+
+    &__slide {
+    }
+
+    &__control {
+    }
+}
+
+//================================================================================================================================
+
+.control-main-block {
+
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap:  rem(20);
+
+    &__dotts {
+        display: inline-grid;
+        grid-auto-flow: column;
+        gap:  rem(15);
+        transform: translate(0,10%);
+        .swiper-pagination-bullet {
+            cursor: pointer;
+            height:  rem(30);
+            width:   rem(18);
+            position: relative;
+            transition: all 0.3s ease 0s;
+            &::after {
+                content: "";
+                height:  rem(2);
+                width:  100%;
+                position: absolute;
+                top: 50%;
+                transform: translate(0, -50%);
+                background-color: #fff;
+                
+            }
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 50%;
+                width:  rem(10);
+                height:  rem(10);
+                transform: translate(0, -50%);
+                background-color: $mainOrange;
+                border-radius: 50%;
+                opacity: 0;
+            }
+        }
+        .swiper-pagination-bullet-active {
+            width:  rem(30);
+            &::after {
+                background-color: $mainOrange;
+            }
+            &::before {
+                opacity: 1;
+                left:  rem(20);
+                transition: left 3s linear 0s;
+            }
+        }
+    }
+
+    &__fraction {
+    }
+}
+.fraction-control {
+
+        display: flex;
+        align-items: flex-end;
+        color: #fff;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+    &__current {
+        font-size:  rem(24);
+        color: $mainOrange;
+    }
+
+    &__all {
+        font-size:  rem(18);
+    }
+}
+
+//================================================================================================================================
+.slide-main-block {
+
+    &__content {
+        padding-right:  rem(40);
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom",60,30,1620,1400, 1);;
+        }
+    }
+
+    &__title {
+        font-weight: 700;
+        letter-spacing: 0.03em;
+        font-size:  rem(36);
+        line-height: math.div(46,36);
+        &:not(:last-child) {
+            margin-bottom: em(16);
+        }
+    }
+
+    &__sub-title {
+        font-size:  rem(36);
+        line-height: math.div(46,36);
+        &:not(:last-child) {
+            margin-bottom: em(30);
+        }
+    }
+
+    &__text {
+        color: rgba(255,255,255,0.7);
+        font-size:  rem(20);
+        line-height: math.div(30,20);
+    }
+
+    &__button {
+    }
+}
+//================================================================================================================================
+.media-main-block {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:  rem(15);
+
+    &__body {
+        position: relative;
+    }
+
+    &__image {
+        &::before {
+            content: "";
+            width: 423px;
+            height: 423px;
+            border: 2px solid rgba(255,255,255,0.5);
+            border-radius: 50%;
+            position: absolute;
+            bottom: 2%;
+            right: 0;
+            transform: translate(30.97%,);
+        }
+        img {
+            position: relative;
+            z-index: 2;
+        }
+    }
+
+    &__tips {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    &__tip {
+        width:  rem(20);
+        height:  rem(20);
+        position: absolute;
+        cursor: pointer;
+        z-index: 100;
+        transition: transform 0.3s ease 0s;
+        @media (any-hover: hover) {
+            &:hover {
+                transform: rotate(-180deg);
+            }
+        }
+        &::before,
+        &::after {
+            content: "";
+            border-radius: 50%;
+            background-color: $mainOrange;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+        &::after {
+            opacity: 0.5;
+            transform: scale(1.6);
+        }
+        span {
+            z-index: 2;
+            color: #fff;
+            font-weight: 600;
+            font-size:  rem(20);
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        &_1 {
+            top: 40%;
+            left: 15%;
+        }
+
+        &_2 {
+            position: absolute;
+            top: 13.4%;
+            right: 5%;
+        }
+
+        &_3 {
+            position: absolute;
+            bottom: 23%;
+            right: 7%;
+        }
+    }
+}
+//==============================================================================================================
+.advantages-main {
+
+    display: grid;
+    grid-template-columns: repeat(4, auto);
+    gap:  rem(10);
+    justify-content: space-between;
+
+    &__item {
+        display: grid;
+        gap:  rem(17);
+        text-align: center;
+    }
+
+    &__icon {
+    }
+
+    &__text {
+        color: #fff;
+        font-weight: 600;
+        font-size:  rem(20);
+        line-height: math.div(32,20);
+    }
+}
